@@ -1,0 +1,13 @@
+<h2><%= @forum.thread %> </h2>
+<p><%= @forum.content %> </p>
+
+<%= link_to "Back", root_path %>
+<%= link_to "Edit", edit_forum_path(@forum) %>
+
+<%= link_to "Delete", forum_path(@forum),
+  method: :delete,
+  data: {
+    controller: "confirm",
+    action: "confirm#confirm",
+    confirm_message_value: "Are you sure to delete this thread?"
+  } %>
