@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
-    resources :forums
+  devise_for :users
+    resources :forums do
+      resources :comments
+    end
     root 'forums#index'
 end

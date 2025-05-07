@@ -1,0 +1,16 @@
+<p><%= comment.message %></p>
+<p><b>Posted by</b> <%= @forum.user.email %>, <%= time_ago_in_words(@forum.created_at) %> ago</p>
+
+<% if user_signed_in? %>
+  <% if @forum.user_id == current_user.id %>
+    <%= link_to "Edit", edit_forum_comment_path(comment.forum, comment) %>
+    <%= link_to "Delete", forum_comment_path(comment.forum, comment), 
+      data: { 
+        turbo_method: :delete,
+        controller: "confirm", 
+        action: "click->confirm#confirm", 
+        confirm_message_value: "Are you sure to delete this comment?" 
+      } 
+    %>
+  <% end %>
+<% end %>

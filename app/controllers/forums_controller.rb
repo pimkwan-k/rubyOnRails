@@ -1,22 +1,25 @@
 class ForumsController < ApplicationController
     before_action :forum_finding, only: [:show, :edit, :update, :destroy]
+    before_action :authenticate_user!, only: [:new]
+
     def index
         @forums = Forum.all.order("created_at DESC")
     end
     
-    def show
-#        @forum = Forum.find(params[:id])
-    end
+    # def show
+    #    @forum = Forum.find(params[:id])
+    # end
     
     def new
         @forum = Forum.new
     end
     
     def create
-        @forum = Forum.new(forum_params)
+        @forum = current_user.forums.build(forum_params)
         if @forum.save
             redirect_to root_path
-        else render 'new'
+        else 
+            render 'new'
         end
     end
     

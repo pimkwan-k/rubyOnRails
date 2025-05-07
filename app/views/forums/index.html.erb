@@ -1,5 +1,23 @@
-<% @forums.each do |forum| %>
-    <h2><%= forum.thread %> </h2>
-    <%= link_to "View Forum Thread", forum_path(forum), class: "btn btn-outline-secondary" %>
-<% end %>
+<div class="container">
+ <div class="row justify-content-center">
+    <% @forums.each do |forum| %>
+      <div class="col-md-4 mb-5 d-flex justify-content-center">
+         <div class="card d-flex flex-column justify-content-between text-bg-secondary p-3" style="width: 30em; height: 15em;">
+             <!-- TOP: thread title -->
+          <div>
+            <h2 class="thread-title px-3 pt-3"><%= forum.thread %> </h2>
+             </div>
+
+          <!-- BOTTOM: button -->
+            <div class="mt-auto text-center">
+            <%= link_to "View Forum Thread", forum_path(forum), class: "btn btn-outline-light" %>
+        </div>
+
+        </div>
+      </div>
+    <% end %>
+  </div>
+   <div class="text-center mt-4">
 <%= link_to "New Forum Thread", new_forum_path %>
+  </div>
+</div>

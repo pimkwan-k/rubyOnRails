@@ -1,0 +1,49 @@
+/*
+ * This is a manifest file that'll be compiled into application.css.
+ *
+ * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
+ * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
+ * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
+ * depending on specificity.
+ *
+ * Consider organizing styles into separate files for maintainability.
+ */
+ 
+ @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap');
+ @import "bootstrap";
+
+
+
+ body{
+  background-color: black;
+ }
+ 
+ 
+
+ .thread{
+  box-sizing: border-box;
+  background-color: gray;
+  margin-bottom: 25px;
+  margin-right: 10px;
+  margin-left: 10px;
+  padding: 1.4em 1.4em;
+  height: 150px;
+  border-bottom: 4px solid black;
+ 
+  .thread-title{
+    font-size: 1.5em;
+    font-family: "Encode Sans Condensed", sans-serif;
+    font-weight: 300;
+    margin-top: 0;
+    color: white;
+    margin-bottom: 25px;
+  }
+
+ .thread-button{
+  margin-top: 20px;
+ }
+}
+
+.thread-show{
+  background-color: #8b4513;
+}
